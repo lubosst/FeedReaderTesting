@@ -90,10 +90,11 @@ $(function () {
     })
 
     it('at least one feed should be displayed in feed container', function() {
-      expect($('.feed').first().children('a').length).toBeGreaterThan(0);
+      //expect($('.feed').first().children('a').length).toBeGreaterThan(0);
+      expect($('.feed .entry').length).toBeGreaterThan(0);
     });
   });
-  
+
   /* Test suite named "New Feed Selection" */
   describe('New feed selection', function() {
     /* Write a test that ensures when a new feed is loaded
