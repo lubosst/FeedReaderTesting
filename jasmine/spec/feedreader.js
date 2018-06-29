@@ -110,13 +110,10 @@ $(function () {
 
     /* Load feed 0 first, then record feed texts, then load feed 1. */
     beforeEach(function(done) {
-      function reloadFeed() {
-        loadFeed(0, reloadFeed);
-        feedHeadingFirst = getHeading();
-        loadFeed(1, done);
-      }
-
-      //loadFeed(0, reloadFeed);
+        loadFeed(0, function() {
+            feedHeadingFirst = $('.feed').html();
+            loadFeed(1, done);
+        });
     });
 
     it('should display new article entries after a new feed is loaded', function() {
