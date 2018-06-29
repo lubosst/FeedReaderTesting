@@ -44,7 +44,7 @@ $(function () {
      * and that the name is not empty.
      */
     allFeeds.forEach(function (feed) {
-      it('feed have not empty URL', function () {
+      it('feed have not empty Name', function () {
         expect(feed.name).toBeDefined();
         expect(feed.name).not.toBeNull();
         expect(feed.name).not.toBe('');
@@ -111,11 +111,12 @@ $(function () {
     /* Load feed 0 first, then record feed texts, then load feed 1. */
     beforeEach(function(done) {
       function reloadFeed() {
+        loadFeed(0, reloadFeed);
         feedHeadingFirst = getHeading();
         loadFeed(1, done);
       }
 
-      loadFeed(0, reloadFeed);
+      //loadFeed(0, reloadFeed);
     });
 
     it('should display new article entries after a new feed is loaded', function() {
